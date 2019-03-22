@@ -8,7 +8,7 @@ class Song
     @name = filename.split(" - ")[1]
     @artist = filename.split(" - ")[0]
     song = self.new(@name)
-    song.artist = Artist.find_or_create_by_name(@artist)
+    Artist.find_or_create_by_name(@artist).add_song(song)
     song.artist.save
     song
   end 
